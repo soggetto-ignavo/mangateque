@@ -13,7 +13,7 @@ if(is_array($match)) {
     list($controller, $action) = explode("#", $match['target']);
     $obj = new $controller();
 
-    if(is_callable($obj, $action)) {
+    if(is_callable(array($obj, $action))) {
         call_user_func_array(array($obj, $action), $match['params']);
   }      
 } else {
